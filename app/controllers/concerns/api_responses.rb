@@ -13,6 +13,7 @@ module ApiResponses
     def render_error(errors: {}, message: "Operation failed", status: :unprocessable_entity)
       render json: {
         sucess: false,
+        errors: errors,
         message: message,
         timestamp: Time.current.iso8601
       }, status: status
