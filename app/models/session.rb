@@ -3,7 +3,7 @@ class Session < ApplicationRecord
 
   has_secure_token :refresh_token
 
-  before_creation :set_expiration
+  before_create :set_expiration
 
   # shortcut to fetch for active sessions on database
   scope :active, -> { where("expires_at > ? ", Time.current) }
